@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dae2ff",
+                        "surface-dim": "#cadaff",
+                        "on-tertiary-fixed-variant": "#004e5d",
+                        "tertiary-fixed-dim": "#48d7f9",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#e8edff",
+                        "surface-container-low": "#f1f3ff",
+                        "on-secondary-container": "#6c5000",
+                        "secondary-fixed-dim": "#fabd00",
+                        "primary": "#003d9b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdf9e",
+                        "outline": "#737685",
+                        "on-surface-variant": "#434654",
+                        "surface-tint": "#0c56d0",
+                        "inverse-on-surface": "#edf0ff",
+                        "inverse-surface": "#1d3052",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed": "#001f27",
+                        "error": "#ba1a1a",
+                        "tertiary": "#004b59",
+                        "tertiary-fixed": "#afecff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#041b3c",
+                        "on-primary-fixed": "#001848",
+                        "secondary-container": "#fdc003",
+                        "primary-container": "#0052cc",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#b2c5ff",
+                        "on-background": "#041b3c",
+                        "surface-container-high": "#e0e8ff",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "outline-variant": "#c3c6d6",
+                        "tertiary-container": "#006477",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#d7e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-secondary-fixed": "#261a00",
+                        "secondary": "#785900",
+                        "on-tertiary-container": "#76e2ff",
+                        "surface-container-highest": "#d7e2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "margin-desktop": "48px",
+                        "lg": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .scrolling-hide::-webkit-scrollbar { display: none; }
+        .scrolling-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation for Mobile (Responsive Shell) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-base bg-surface shadow-sm z-50 fixed top-0">
+<div class="font-headline-md text-headline-md font-bold text-primary">Voyager</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<img alt="User avatar" class="w-8 h-8 rounded-full" data-alt="A clean, professional headshot of a person with a friendly expression, set against a soft-focus office background. The lighting is bright and even, reflecting a high-key corporate modern aesthetic. The color palette is composed of soft whites and cool grays, maintaining a minimalist and trustworthy visual style for a modern tech application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcq9d8mujprvabi_F_qtaex03OYlrEseP1DN-03xGcSZ0apJ--gc-gCLQSJVLXxgN3ZpSOd-lYYEj__XG7vsh4icROWxKbtx-v5UKFfroOOVo8BhRLAromtN3dshS2bi5St4qVs27TP0h6TyVJXoP7IyYK1VVNgUuD8MydbDveuq0H-y_cjNjlYoXWUEcJ8vaatc9HcJTgL9PDdM7QINxnUtNu-7S4F20tiyDi_yaMFTKOHMQMmWZdMdMy2FxOdSLCPCvf_PUGAsk"/>
+</div>
+</header>
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col p-md gap-base bg-surface-container-low dark:bg-inverse-surface z-50">
+<div class="mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="travel_explore">travel_explore</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">Voyager</h1>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Adventure Prepared</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<!-- Active State: Dashboard -->
+<a class="flex items-center gap-base p-sm bg-primary-container text-on-primary-container rounded-lg font-bold transition-all Active: translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-base p-sm text-on-surface-variant hover:bg-surface-container-high transition-all Active: translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Trip Planner</span>
+</a>
+<a class="flex items-center gap-base p-sm text-on-surface-variant hover:bg-surface-container-high transition-all Active: translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Squad Hub</span>
+</a>
+<a class="flex items-center gap-base p-sm text-on-surface-variant hover:bg-surface-container-high transition-all Active: translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+<span class="font-label-md text-label-md">Logistics</span>
+</a>
+<a class="flex items-center gap-base p-sm text-on-surface-variant hover:bg-surface-container-high transition-all Active: translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+<span class="font-label-md text-label-md">Safety Profile</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary font-label-md text-label-md py-md px-lg rounded-lg shadow-md flex items-center justify-center gap-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            New Trip
+        </button>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 pt-20 md:pt-0 p-margin-mobile md:p-margin-desktop min-h-screen">
+<!-- Header (Desktop version of TopAppBar) -->
+<div class="hidden md:flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Welcome back, Alex</h2>
+<p class="text-on-surface-variant">Ready for your next expedition?</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-high px-md py-sm rounded-full flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48" placeholder="Search trips..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant p-sm hover:bg-surface-container-low rounded-full" data-icon="emergency_share">emergency_share</span>
+<span class="material-symbols-outlined text-on-surface-variant p-sm hover:bg-surface-container-low rounded-full" data-icon="notifications">notifications</span>
+<img alt="User avatar" class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A professional headshot of a modern traveler in front of a minimalist architecture wall. The lighting is soft and daylight-balanced, emphasizing a crisp and reliable image. The color scheme features muted blues and warm highlights, aligning with the adventure blue and corporate modern style of the Voyager platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXaAMpXy4AgZUL8zz_avYIduQU6jb3dmvBviggRCOljP_g92NLLYv8jm0vLFFCXOAnI8x1MOn1q6Aj4Fi9NowvHivYWNyOT343lUeYDz9-k6bngI5FIEoN9iq55I_ybw7pf25KlgewbI-mVuettxJuTbcltHbUnSDHoaz03OrijLNqxOnlmqmkPu2aorrefLlPtU0KdWJ3NOgJX5GKlObJ-_GkySqC1sb9-YAIkfkFbVlDjGwuy9vwLP2e8Xo2qHLSYO1Xa62VK3s"/>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-lg">
+<!-- Left Column: Current Trip & Upcoming -->
+<div class="flex-grow lg:w-2/3 space-y-lg">
+<!-- Current Trip Hero (Bento Grid Style) -->
+<section class="relative bg-inverse-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(12,86,208,0.05)] h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A breathtaking panoramic view of a lush valley in Yosemite National Park at sunrise. The lighting is golden and evocative, with soft mist rolling between pine-covered peaks. The atmosphere is serene and inspires exploration, using a palette of deep greens, golden yellows, and clear blues for a premium adventure feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_iqJpGxGTkfzROZ3_FoBazvSjRnCNIdeln7oBUHRDTNpK_ONEKhvuMEhcBpz10VBfbiso6c0BJ2WrD2Ir4Y3hSafHNFMqoSH6FbysLDmHfpXOsZttIq-Paqz0XN6d08AF1Flb7uR6Oklmw9RLkKLgcYWYPcY65DlMgNgvSGLxYMlyY4ObaN5svD0kzsAcof7pCuNvBXnl8UrSRpFyLgmnSg-vLZpUO5O3XEB8ZVhP_mhXhJKetMSv9h9UHJIFPGK5LERNGScYdZ0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-transparent to-transparent"></div>
+<div class="relative h-full p-lg flex flex-col justify-between text-on-primary">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-md text-label-md">Ongoing Trip</span>
+<div class="flex gap-sm">
+<button class="bg-white/10 backdrop-blur-md p-sm rounded-full hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md p-sm rounded-full hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="font-display-lg text-display-lg mb-xs">Alpine Ascent: Switzerland</h3>
+<p class="font-body-lg text-body-lg text-primary-fixed mb-md">Zermatt &amp; Matterhorn Region • Oct 12 - Oct 20</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-md">
+<p class="text-label-sm font-label-sm opacity-80 mb-xs">Countdown</p>
+<p class="font-headline-md text-headline-md">Day 04</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-md">
+<p class="text-label-sm font-label-sm opacity-80 mb-xs">Next Action</p>
+<p class="font-headline-md text-headline-md">Train to Tasch</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-md">
+<p class="text-label-sm font-label-sm opacity-80 mb-xs">Weather</p>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="sunny">sunny</span>
+<p class="font-headline-md text-headline-md">12°C</p>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-md border-l-4 border-secondary-container">
+<p class="text-label-sm font-label-sm opacity-80 mb-xs">Squad</p>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-inverse-surface" data-alt="Close up of a laughing traveler." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfCB5xHYIYz0jz7sb4uXvwMojTNghXfaYO6N42oEsF-GkFUQUqRE2PYgkS955eAc-gd8HZrIJ9DiZEmPFDXwJmd1-AAw5NnncX5pxI5OcsL8GxFMycBpka6NfQh0V3lmjraxGKN4nhHqVEsTI0jqEqPMSHUUfZd4y4e-OwErXhcMoDzkfdOWztlwatyLc1NYAw-aqNhO5LPSEXfhGyyyKH6hU-HCxT6byDBOsB13cy20WJuEQ1BsIRboio5nHzO_Qg06Whn9li5Co"/>
+<img class="w-8 h-8 rounded-full border-2 border-inverse-surface" data-alt="Portrait of a smiling woman outdoors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtreu3y_cgP39lVuubAk-YewTPWxcIIk2J63QX7D6VKs2EGd-xWb9rg4bqFQdtQ5XEbExzd7oNP94O2Eu6Xh07-ZHeeTQANZegOP_jb-i6EVW179UvD5_VY7pRByIDxR80tPuOUfWKL1eE5tjTXJcKiMyAINUAVmP8OS4ziXQwsgZ13gBmkXh2MSOk0juZ9hqB2a6d5aWHB1ynIzpLInZmmpIA3_as4zQWDJgfZP0izynPB6ZhLTN6ggodqFWYwHigJcvqHhZaRPY"/>
+<div class="w-8 h-8 rounded-full bg-primary text-label-sm font-bold flex items-center justify-center border-2 border-inverse-surface">+3</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Adventures Grid -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-headline-md text-headline-md text-on-surface">Upcoming Adventures</h4>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs">
+                            View All <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Itinerary Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(12,86,208,0.05)] border-l-4 border-yellow-400 group hover:translate-y-[-4px] transition-all">
+<div class="h-32 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="The vibrant and colorful streets of Chefchaouen, Morocco. Intricate blue-washed architecture with potted flowers under a bright midday sun. High-contrast lighting and vivid teal and blue colors create a dreamy, organized adventure vibe for a planned trip." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEKczJPlV8atwOVMwe828mBS-KLspTiMlFetaTrB3nuJ9wAfy_9AjhbgSWF99xKzKyGatfzK89DdYak9llPo33RTWqvBEHYQDYHw8v9cRY66GHePzfWDP2VksBJ83Z2nNQw8QD07fA3aoouP8OMhff7HuQXYx-M5gtObzJ3fc7ah2pybaDOPcOb4EpBCff2Ltm5pibYdQRVgscF4xpJmSLvd-xqYrwUwTipsB41iWpIexQHgDHbADYukpkhREs9JjZ2-zZSsCLN60"/>
+<div class="absolute top-sm right-sm bg-white/80 backdrop-blur-sm px-sm py-xs rounded-full font-label-sm text-label-sm text-on-surface">Dec 2024</div>
+</div>
+<div class="p-md">
+<h5 class="font-headline-md text-headline-md mb-xs">Moroccan Mystery</h5>
+<div class="flex items-center gap-sm text-on-surface-variant mb-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<p class="text-label-md">Marrakech &amp; Atlas</p>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="bg-surface-container-high text-on-surface-variant p-xs rounded"><span class="material-symbols-outlined text-[18px]" data-icon="flight">flight</span></span>
+<span class="bg-surface-container-high text-on-surface-variant p-xs rounded"><span class="material-symbols-outlined text-[18px]" data-icon="hotel">hotel</span></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Planning: 85%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-sm">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Itinerary Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(12,86,208,0.05)] border-l-4 border-primary group hover:translate-y-[-4px] transition-all">
+<div class="h-32 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A misty, ethereal view of Ha Long Bay, Vietnam, featuring ancient limestone pillars rising out of calm, turquoise waters. Soft morning fog and cool blue tones dominate the scene, creating a sense of quiet discovery and minimalist beauty for a future expedition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH_7IcD0G8ZVgF59eM4WX95tFMHGhhtpGR2TXlD2T9XAYnrlx0oYIYdIoMfbERZORFrjXjesMIoPlFyXVnhm07uw9kDJe2wIv9aTbLlzStOibiVAzbUSPKINWzMZWOBYqExt3OpBSaRJBOk4CWYrSocKGHVevJEzP6wTQqIAI1DhmJl9szVAcuSvoG5xbyToHUj63eS_xjI1CypcXvy5C77sIdaYvucVAkbB0glQ2XTOzo_KpSY1_CPg1ETxcL7UHXgUyUulL46dY"/>
+<div class="absolute top-sm right-sm bg-white/80 backdrop-blur-sm px-sm py-xs rounded-full font-label-sm text-label-sm text-on-surface">Feb 2025</div>
+</div>
+<div class="p-md">
+<h5 class="font-headline-md text-headline-md mb-xs">Vietnam Crossing</h5>
+<div class="flex items-center gap-sm text-on-surface-variant mb-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<p class="text-label-md">Hanoi to Ho Chi Minh</p>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex gap-xs">
+<span class="bg-surface-container-high text-on-surface-variant p-xs rounded"><span class="material-symbols-outlined text-[18px]" data-icon="train">train</span></span>
+<span class="bg-surface-container-high text-on-surface-variant p-xs rounded"><span class="material-symbols-outlined text-[18px]" data-icon="directions_bike">directions_bike</span></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Planning: 40%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-sm">
+<div class="bg-primary h-full w-[40%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Recent Activity & Safety Quick-Link -->
+<div class="lg:w-1/3 space-y-lg">
+<!-- Safety Card (Identity: Emergency Info Card) -->
+<section class="bg-surface rounded-xl p-md border-t-4 border-error shadow-[0_4px_24px_rgba(12,86,208,0.1)]">
+<div class="flex items-center gap-sm mb-md text-error">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h4 class="font-headline-md text-headline-md">Safety Portal</h4>
+</div>
+<div class="space-y-md">
+<div class="bg-error-container p-sm rounded-lg">
+<p class="text-on-error-container font-label-sm text-label-sm uppercase tracking-wider mb-xs">Local Emergency</p>
+<p class="text-on-error-container font-headline-md text-headline-md">Dial 117 (Switzerland)</p>
+</div>
+<div class="flex flex-col gap-sm">
+<button class="w-full bg-error text-on-error py-md rounded-lg font-bold flex items-center justify-center gap-sm shadow-md">
+<span class="material-symbols-outlined" data-icon="sos">sos</span>
+                                REQUEST SOS
+                            </button>
+<button class="w-full border-2 border-outline text-on-surface py-sm rounded-lg font-label-md text-label-md flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+                                View Health Record
+                            </button>
+</div>
+</div>
+</section>
+<!-- Recent Activity Feed -->
+<section class="bg-surface rounded-xl p-md shadow-[0_4px_12px_rgba(12,86,208,0.05)]">
+<h4 class="font-headline-md text-headline-md mb-md">Squad Activity</h4>
+<div class="space-y-lg">
+<!-- Activity 1 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[15px] top-10 bottom-0 w-0.5 bg-surface-container-high"></div>
+<div class="relative z-10">
+<img class="w-8 h-8 rounded-full ring-2 ring-background" data-alt="A woman in hiking gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvw_L__5hqTw8zGvyty2c5VcHNAj79Z0NyIIHwlDoIEDD3iUsNuE0fqgVIpcVaTFFAyg8kOXFu2quMVS5f7wCsIcLeMWf8eGvkfxTQA6yb3q_MGnvs0-GaVfBzmszFtr73p4DwzS8Z-0-fo4nz8HoZqq5qz3NOXgS9wJvHbYcEhNb-LDyY0FbGChxNxR69GjkCqr9xcJx_8pNf9zMoEO8WsKQPAgJIk2H1BJX9EqvZxJy2tAesVukjSTeVjESM3xZLWUFKK_uzPk"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-background rounded-full"></div>
+</div>
+<div class="flex-grow">
+<p class="text-body-md"><span class="font-bold">Sarah</span> added 4 photos to <span class="text-primary font-bold">Matterhorn Sunrise</span></p>
+<div class="flex gap-xs mt-sm overflow-x-auto scrolling-hide">
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="A majestic mountain peak at sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY-UGt5BqHmAkeoh_dWgN4OdWITmjbSc5lxHoUnVdoE_fRtd2beeARXf50wruNFZzir9WGAQx0ENV9v_XWpam3jRauEry9D2RT4SzcGUm3-zSevaS8j6863GHUPAaAmAj2PpPspEhlmip-E-c1Bf1akIE8ftEkH7R5Mk4iPF6nlwnCCtBVxn-y5whI7qqIgTT-SSvNB0OHfl7U5Vh0_Sj1w6InO8tKeP3TbTJdKXzDr4yFMH1l4IOByLuxIjPYMYjurQOmieKUgA0"/>
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="Snowy alpine trail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0uOutW13bWOuRLfjgHXIaglMxacutNzcYG3DApQatCpHs4vtpR5cS7Q_wqUyZp__1I3dTj_Yxy7HXbk6mKnnI2qtwpq-VVAekZAB5tlPkwPuDTYzSFR0jcKTRF1u5r_INKHqzGSM8COy5EmvvPmwysVUdYk2vAFa_feW91Z8jM6z1xWemZoQEfeT9RuUKsf3Tn2YCa6auU7-Hv4MjPq-m5fC9Jzjk5RQNoS3P5lRhvBixH3To7k0Yg6uJKkTdnO8123KGnXnCVpA"/>
+<div class="w-16 h-16 rounded-lg bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface-variant">+2</div>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-xs">14 minutes ago</p>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="flex gap-md relative">
+<div class="absolute left-[15px] top-10 bottom-0 w-0.5 bg-surface-container-high"></div>
+<div class="relative z-10">
+<img class="w-8 h-8 rounded-full ring-2 ring-background" data-alt="A traveler smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-PsNYe9zrkOap01RkvVkvgk0HAHIEySEPt9EGeWRw3mXolAgOqWOgR3RI5G8vWZl1DPvB6fTZmE_iFvK62Z3TZ3t9_ye0KOh5h2xsQ0HSTLkkzZMWcuU8ffc6LQNIXdZGiEc8LDNWiKBkfE6rB0b5n2uKjeuysY2PIvj1__xOuO-PM_XdBpO0Wwv9bI1abisSC9OhwaRqxySePvliIdwHuQsT1OvcIr_VgpEsMbTbCqM-6y8ckR2rm5SWuhpdQGzKmbOJ-yOc3jk"/>
+</div>
+<div class="flex-grow">
+<p class="text-body-md"><span class="font-bold">James</span> updated logistics: <span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-xs rounded">Train Ticket Verified</span></p>
+<p class="text-label-sm text-on-surface-variant mt-xs">2 hours ago</p>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="flex gap-md relative">
+<div class="relative z-10">
+<img class="w-8 h-8 rounded-full ring-2 ring-background" data-alt="A portrait of a young traveler." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyqzk9fZ2QIRZhOthmsd_uTD_u6Rmex-vP3QMTaQfoyU0UCsuqfEoENzoyZlb7xeRSp7nhJKPOigQFhhQTTBuQ2b5Ehd6fRtvv5xmjXRjm1wQMrbXpAn7gAxxBfUXQruKwW7dn0PHlcxyt1XsHq2p_nxhyPOf-sWAV9mP--xY2CVqyL0A2iB2O-tAUTa-5eOJbyQOyLTYkKbdHW4gWMNoZWAAylhHxu0cG66VCRjcS1mgvXFyBGt1uJAIU9X5TBOQQiLoGq6wvQ60"/>
+</div>
+<div class="flex-grow">
+<p class="text-body-md"><span class="font-bold">Elena</span> pinned a new location to <span class="text-primary font-bold">Moroccan Mystery</span></p>
+<div class="mt-sm bg-surface-container-low p-sm rounded-lg border border-outline-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+<div>
+<p class="font-bold text-label-md">Nomad Cafe Marrakech</p>
+<p class="text-label-sm opacity-70">"Best rooftop views in the Medina"</p>
+</div>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-xs">5 hours ago</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Authority Source: JSON) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-16 bg-surface rounded-t-xl shadow-[0_-4px_24px_rgba(12,86,208,0.1)]">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-sm text-label-sm">Squad</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Logistics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+<span class="font-label-sm text-label-sm">Safety</span>
+</a>
+</nav>
+</body></html>
